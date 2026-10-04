@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://z-tech-os.github.io/Zyvora-Shop-CCTV/sitemap.xml
