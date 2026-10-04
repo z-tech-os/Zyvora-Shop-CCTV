@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Zyvora Shop CCTV | Secure Phone Camera Monitoring</title>
+<meta name="description" content="Shop CCTV is a browser-based CCTV monitoring tool that connects a phone camera to a laptop for live shop monitoring and local video recording.">
+<meta name="author" content="Mustapha Gbanie">
+<meta name="robots" content="index, follow">
+<meta name="googlebot" content="index, follow">
+<meta name="bingbot" content="index, follow">
+<meta name="theme-color" content="#000000">
+<link rel="canonical" href="https://z-tech-os.github.io/Zyvora-Shop-CCTV/">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Shop CCTV | Secure Phone Camera Monitoring">
+<meta property="og:description" content="A browser-based CCTV monitoring tool that connects a phone camera to a laptop for live shop monitoring and video recording.">
+<meta property="og:url" content="https://z-tech-os.github.io/Zyvora-Shop-CCTV/">
+<meta property="og:site_name" content="Shop CCTV">
+<meta property="og:image" content="https://z-tech-os.github.io/Zyvora-Shop-CCTV/assets/shop-cctv-preview.jpg">
+<meta property="og:image:alt" content="Shop CCTV monitoring application">
+
+<!-- Twitter / X -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Shop CCTV | Secure Phone Camera Monitoring">
+<meta name="twitter:description" content="Connect a phone camera to a laptop for browser-based live shop monitoring and video recording.">
+
+<meta name="twitter:image" content="https://z-tech-os.github.io/Zyvora-Shop-CCTV/assets/shop-cctv-preview.jpg">
+
+<link
+rel="icon"
+type="image/png"
+href="assets/favicon.png"
+>
+
+<!-- Stylesheet -->
+<link rel="stylesheet" href="style.css">
+
+<!-- External Libraries -->
+<script src="https://unpkg.com/peerjs@1.5.3/dist/peerjs.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+</head>
+
+<body>
+
+<h2>📡Zyvora Shop CCTV Camera</h2>
+
+<p>
+<span class="dataBadge">🔋 Battery Saver: ON</span>
+<span class="dataBadge" id="wakeBadge">Screen: Normal</span>
+</p>
+
+<div class="card">
+
+<button class="primary" onclick="beLaptop()">💻YOUR LAPTOP</button>
+
+<button class="primary" onclick="bePhone()">📱YOUR PHONE</button>
+
+<p id="status" style="color:#4CAF50;margin-top:10px"></p>
+
+</div>
+
+<div class="card" id="laptopBox" style="display:none">
+
+<h3>💻Your Laptop Screen</h3>
+
+<div id="qrArea">
+
+<p>Your ID:</p>
+
+<div id="qrcodeBox">
+<span style="color:black">Generating QR...</span>
+</div>
+
+<div id="myIdText">----</div>
+
+<p>
+<small>On PHONE, type this ID</small>
+</p>
+
+</div>
+
+<div class="ratioBox">
+<video id="remoteVideo" autoplay playsinline controls></video>
+</div>
+
+<p id="liveText" style="color:gray">
+Waiting for phone to connect...
+</p>
+
+<div>
+
+<button style="background:#c00;color:white" onclick="startRec()" id="recBtn" disabled>
+● REC
+</button>
+
+<button onclick="stopRec()" id="stopBtn" disabled>
+■ Stop
+</button>
+
+</div>
+
+<div id="clips"></div>
+
+</div>
+
+<div class="card" id="phoneBox" style="display:none">
+
+<h3>📱 Phone Camera</h3>
+
+<div class="ratioBox">
+<video id="localVideo" autoplay muted playsinline></video>
+</div>
+
+<div id="phoneConnectArea">
+
+<input id="remoteId" placeholder="Type Laptop ID: bestie-1234">
+
+<button class="primary" style="background:#00a854;width:90%" onclick="connectPhone()">
+✅ CONNECT
+</button>
+
+</div>
+
+<p id="phoneStatus" style="color:orange"></p>
+
+<button id="stealthBtn" style="background:#222;color:white;display:none;width:90%;margin-top:10px" onclick="toggleBlack()">
+🌑 Turn Screen Black (Still Recording)
+</button>
+
+<p style="font-size:11px;opacity:0.5;margin-top:8px">
+Black mode = screen looks OFF but camera still streaming, saves 80% battery
+</p>
+
+</div>
+
+<!-- FAKE BLACK SCREEN - THIS IS THE TRICK -->
+
+<div id="blackScreen" onclick="toggleBlack()">
+
+<p style="font-size:50px">●</p>
+
+<p style="color:#333;margin-top:10px">
+LIVE - Shop Monitoring
+</p>
+
+<p style="color:#222;font-size:11px;margin-top:20px">
+Tap anywhere to wake
+</p>
+
+<p id="blackTime" style="color:#111;font-size:10px;margin-top:10px"></p>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
